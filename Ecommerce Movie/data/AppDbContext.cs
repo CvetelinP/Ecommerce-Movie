@@ -1,9 +1,10 @@
 ﻿using Ecommerce_Movie.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce_Movie.data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) :base(options)
         {
@@ -38,9 +39,6 @@ namespace Ecommerce_Movie.data
         public DbSet<OrderItem> OrderItems { get; set; }
 
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
-
-
-
 
 
     }

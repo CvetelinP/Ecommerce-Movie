@@ -1,4 +1,5 @@
 ﻿using Ecommerce_Movie.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Ecommerce_Movie.data
 {
@@ -104,6 +105,16 @@ namespace Ecommerce_Movie.data
                 }
             }
         }
+
+
+        public static async Task SeedUsersAndRoles(IApplicationBuilder applicationBuilder)
+        {
+            using(var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
+            {
+                var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            }
+        }
+       
     }
 }
 
